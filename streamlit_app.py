@@ -27,15 +27,14 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
         
-        # Display the subheader for the chosen fruit
+        # Ye line subheader dikhayegi
         st.subheader(fruit_chosen + ' Nutrition Information')
         
-        # Make the API call
+        # API call jo har phal ke liye alag hogi
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
         
-        # Display the dataframe from the API response
-        st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
-
+        # Dataframe jo table dikhayega
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     # Prepare the SQL insert statement
     my_insert_stmt = (
         "INSERT INTO smoothies.public.ORDERS (ingredients, NAME_ON_ORDER) "
