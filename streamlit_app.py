@@ -22,18 +22,17 @@ ingredients_list = st.multiselect(
 )
 if ingredients_list:
     ingredients_string = ''
-
-     for fruit_chosen in ingredients_list:
-         ingredients_string += fruit_chosen + ' '
+    for fruit_chosen in ingredients_list:
+        ingredients_string += fruit_chosen + ' '
         
         # Ye line subheader dikhayegi
-         st.subheader(fruit_chosen + ' Nutrition Information')
+        st.subheader(fruit_chosen + ' Nutrition Information')
         
         # API call jo har phal ke liye alag hogi
-         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
         
         # Dataframe jo table dikhayega
-         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     # Prepare the SQL insert statement
     my_insert_stmt = (
         "INSERT INTO smoothies.public.ORDERS (ingredients, NAME_ON_ORDER) "
