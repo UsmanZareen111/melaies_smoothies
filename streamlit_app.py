@@ -41,6 +41,9 @@
 #     # st.write(my_insert_stmt)
 #     time_to_order= st.button('Submit order')
 #     if time_to_order:
+        #     sql(my_insert_stmt).collect()
+        # st.success(f"Your Smoothie is ordered, {name_on_order}!", icon="✅")
+
 
 
 # Import python packages
