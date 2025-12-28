@@ -33,6 +33,12 @@ if ingredients_list:
         "VALUES ('" + ingredients_string + "', '" + name_on_order + "')"
     )
 
+    # New section to display smoothiefroot nutrition information
+import requests
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
+
     # st.write(my_insert_stmt)
     time_to_order= st.button('Submit order')
     if time_to_order:
